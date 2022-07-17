@@ -24,4 +24,9 @@ https://www.embedded.com/my-favorite-software-debouncers/
 
 **Permissions**
 
-1. PLease refer to the LICENSE file "# Debouncer-" 
+1. PLease refer to the LICENSE file
+
+**Contact Me**
+1. You can reach out to me on LinkedIn here
+https://www.linkedin.com/in/vishal-keshava-murthy-8a2ba1a7/
+
