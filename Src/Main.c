@@ -40,8 +40,8 @@ bool dummyIsButtonPressed()
  */
 int main()
 {
-    char buf[50] ; 
-    Version_GetVersion(buf,sizeof(buf));
+    char buf[32] ; 
+    Version_GetVersion(buf, sizeof(buf));
     printf("%s",buf);
 
     sDebounceHelper_t testDebounceHelper ;

@@ -26,12 +26,26 @@ Collection of Debouncing strategies from the internet suitable for embedded syst
 
 ## Build-Instruction
 
-### Building project over CMake
+### Build directly with CMake
 
-```code
-cmake -S . -B build
-cmake --build build
-```
+1. Two presets *BUILD_DEBUG* and *BUILD_RELEASE* are created for generating the Debug build and release build respectively
+
+    ```code
+    cmake --preset BUILD_DEBUG
+    cmake --build --preset BUILD_DEBUG
+    ```
+
+    ```code
+    cmake --preset BUILD_RELEASE
+    cmake --build --preset BUILD_RELEASE
+    ```
+
+2. For simper builds not involving Cmake Presets, the following command can be used
+
+    ```code
+    cmake -S . -B build
+    cmake --build build
+    ```
 
 ### Building Documentation through Doxygen
 

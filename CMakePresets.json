@@ -1,0 +1,64 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+      "major": 3,
+      "minor": 28,
+      "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "config-base",
+            "hidden": true,
+            "displayName": "base Configuration",
+            "description": "Default build using Ninja generator",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}"
+          },
+          {
+            "name": "BUILD_DEBUG",
+            "displayName": "Config Debug",
+            "description": "Sets debug build type",
+            "inherits": "config-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic",
+                "COMPILE_DEFINITIONS": "DEBUG=1;DEBUG_BUILD=1"
+            }
+          },
+          {
+            "name": "BUILD_RELEASE",
+            "displayName": "Config Release",
+            "description": "Sets release build type",
+            "inherits": "config-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -march=haswell -flto",
+                "COMPILE_DEFINITIONS": "NDEBUG=1;RELEASE_BUILD=1"
+            }
+          }
+
+    ],
+    "buildPresets": [
+        {
+            "name": "build-base",
+            "hidden": true,
+            "cleanFirst": false
+        },
+        {
+            "name": "BUILD_DEBUG",
+            "displayName": "Build Debug",
+            "inherits": "build-base",
+            "configurePreset": "BUILD_DEBUG"
+        },
+        {
+            "name": "BUILD_RELEASE",
+            "displayName": "Build Release",
+            "inherits": "build-base",
+            "configurePreset": "BUILD_RELEASE"
+        }
+
+    ],
+    "testPresets": [
+
+    ]
+  }

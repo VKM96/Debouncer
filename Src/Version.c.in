@@ -1,0 +1,21 @@
+/**
+ * @file Version.c.in
+ * @author vishal k
+ * @brief Version string gets populated by cMake here  
+ * @version 0.1
+ * @date 2022-07-17
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include "Version.h"
+#include <stdint.h>
+#include <stdio.h>
+
+void Version_GetVersion(char* const pVersion, size_t bufSize)
+{
+    snprintf(pVersion, bufSize, "@ButtonDebounce_VERSION@");
+}
