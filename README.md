@@ -49,9 +49,11 @@ Collection of Debouncing strategies from the internet suitable for embedded syst
 
 ### Building Documentation through Doxygen
 
+Pass the following option over the command line while building the project to
+enable docs generation
+
 ```code
-cd build
-doxygen Doxyfile
+-DBUILD_WITH_DOCS=ON 
 ```
 
 ## Credits
