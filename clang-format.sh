@@ -2,7 +2,7 @@
 
 # Usage: ./clang-format.sh <extra arguments>
 
-DIRS="Src inc"
+DIRS="Src"
 SOURCES=$(find ${DIRS} -name "*.c")
 SOURCES+=" $(find ${DIRS} -name "*.h")"
 SOURCES+=" $(find ${DIRS} -name "*.cpp")"
