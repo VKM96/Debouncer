@@ -46,7 +46,8 @@
             "inherits": "config-base",
             "cacheVariables": {
                 "OP_BUILD_TESTS": "ON",
-                "OP_BUILD_APP": "OFF"
+                "OP_BUILD_APP"  : "OFF",
+                "OP_BUILD_DOCS" : "OFF"
             }
           },
           {
@@ -65,7 +66,7 @@
         {
             "name": "build-base",
             "hidden": true,
-            "cleanFirst": false
+            "cleanFirst": true
         },
         {
             "name": "BUILD_DEBUG",
@@ -83,8 +84,7 @@
           "name": "BUILD_TESTS",
           "displayName": "Build tests",
           "inherits": "build-base",
-          "configurePreset": "BUILD_TESTS",
-          "targets" : "masterTestSuite"
+          "configurePreset": "BUILD_TESTS"
         },
         {
           "name": "BUILD_DOCS",
