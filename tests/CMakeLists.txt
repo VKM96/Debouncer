@@ -9,7 +9,7 @@ macro(add_unit_test target target_test)
 endmacro(add_unit_test)
 
 # Define a target that gathers all tests appended though macro @ref add_unit_test
-add_custom_target( ${this}
+add_custom_target( ${this} ALL
                    DEPENDS ${UNIT_TEST_TARGETS}
 )
 

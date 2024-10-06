@@ -65,9 +65,9 @@ Collection of Debouncing strategies from the internet suitable for embedded syst
 2. To run tests manually with more granular control, tests can be built and executed executed directly
 
     ```code
-    cmake -S . -B build/temp -DOP_BUILD_TESTS=ON -DOP_BUILD_APP=OFF -DOP_BUILD_DOCS=OFF
-    cmake --build build/temp
-    ctest --test-dir build/temp
+    cmake -S . -B build/tests -DOP_BUILD_TESTS=ON -DOP_BUILD_APP=OFF -DOP_BUILD_DOCS=OFF
+    cmake --build build/tests
+    ctest --test-dir build/tests
     ```
 
 ### Building Documentation through Doxygen
