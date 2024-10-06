@@ -29,6 +29,6 @@ target_link_libraries(${this}
     Unity
 )
 
-add_test(${this}_test ${this})
+add_unit_test(${this}_test ${this})
 
 

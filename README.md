@@ -14,7 +14,7 @@ Collection of Debouncing strategies from the internet suitable for embedded syst
 
 1. Source files are present in @ref Src
 2. Interface files are present in @ref inc
-3. PLease refer doxygen generated HTML documentation in the Doc/html subfolder for implementation details
+3. Please refer doxygen generated HTML documentation in the Doc/html subfolder for implementation details
 4. The function entry point is @ref Main.c
 
 ## Usage
@@ -24,9 +24,15 @@ Collection of Debouncing strategies from the internet suitable for embedded syst
 3. @ref debounce_pressRelease or @ref debounce_bitTrain need to be called periodically using an interrupt or task, Please refer to the @ref debounce_Init section for details
 4. @ref debounce_isKeyPressed is used to read debounced buttons
 
+## CMake options (Cache variables)
+
+1. OP_BUILD_APP    : ON/OFF : control App building
+2. OP_BUILD_TESTS  : ON/OFF : Control Test building
+3. OP_BUILD_DOCS   : ON/OFF : Control Doc generation
+
 ## Build-Instruction
 
-### Build directly with CMake
+### Application builds
 
 1. Two presets *BUILD_DEBUG* and *BUILD_RELEASE* are created for generating the Debug build and release build respectively
 
@@ -43,18 +49,42 @@ Collection of Debouncing strategies from the internet suitable for embedded syst
 2. For simper builds not involving Cmake Presets, the following command can be used
 
     ```code
-    cmake -S . -B build
-    cmake --build build
+    cmake -S . -B build/temp -DOP_BUILD_APP=ON
+    cmake --build build/temp
+    ```
+
+### Building and running tests
+
+1. CMake Preset *BUILD_TESTS* can be used to build as well run all tests
+
+    ```code
+    cmake --preset BUILD_TESTS
+    cmake --build --preset BUILD_TESTS
+    ```
+
+2. To run tests manually with more granular control, tests can be built and executed executed directly
+
+    ```code
+    cmake -S . -B build/temp -DOP_BUILD_TESTS=ON -DOP_BUILD_APP=OFF
+    cmake --build build/temp
+    ctest --test-dir build/temp
     ```
 
 ### Building Documentation through Doxygen
 
-Pass the following option over the command line while building the project to
-enable docs generation
+1. CMake Preset *BUILD_DOCS* can be used to generate documentation based on doxygen
 
-```code
--DBUILD_WITH_DOCS=ON 
-```
+    ```code
+    cmake --preset BUILD_DOCS
+    cmake --build --preset BUILD_DOCS
+    ```
+
+2. To generate documentation manually with more granular control
+
+    ```code
+    cmake -S . -B build/temp -DOP_BUILD_DOCS=ON
+    cmake --build build/temp
+    ```
 
 ## Credits
 

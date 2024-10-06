@@ -12,7 +12,10 @@
             "displayName": "base Configuration",
             "description": "Default build using Ninja generator",
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build/${presetName}"
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+              "OP_BUILD_APP": "ON"
+            }
           },
           {
             "name": "BUILD_DEBUG",
@@ -35,6 +38,26 @@
                 "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -march=haswell -flto",
                 "COMPILE_DEFINITIONS": "NDEBUG=1;RELEASE_BUILD=1"
             }
+          },
+          {
+            "name": "BUILD_TESTS",
+            "displayName": "Config Tests",
+            "description": "builds all unit tests",
+            "inherits": "config-base",
+            "cacheVariables": {
+                "OP_BUILD_TESTS": "ON",
+                "OP_BUILD_APP": "OFF"
+            }
+          },
+          {
+            "name": "BUILD_DOCS",
+            "displayName": "Config docs",
+            "description": "builds all unit docs",
+            "inherits": "config-base",
+            "cacheVariables": {
+                "OP_BUILD_APP": "OFF",
+                "OP_BUILD_DOCS": "ON"
+            }
           }
 
     ],
@@ -55,8 +78,20 @@
             "displayName": "Build Release",
             "inherits": "build-base",
             "configurePreset": "BUILD_RELEASE"
+        },
+        {
+          "name": "BUILD_TESTS",
+          "displayName": "Build tests",
+          "inherits": "build-base",
+          "configurePreset": "BUILD_TESTS",
+          "targets" : "masterTestSuite"
+        },
+        {
+          "name": "BUILD_DOCS",
+          "displayName": "Build documentation",
+          "inherits": "build-base",
+          "configurePreset": "BUILD_DOCS"
         }
-
     ],
     "testPresets": [
 
